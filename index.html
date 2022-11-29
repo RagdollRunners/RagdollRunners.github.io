@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<body body background="C:\Users\Flyfire\Pictures\无标题.png" style=" background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;text-align: center;" >
+<br><br><br><br><br><br>
+<h1>成绩<br><br></h1>
+<font size="4">10米: &emsp;&emsp;<input type="number" step="0.001" id="10m" style="height: 30px;width: 70px;" value="1.315">s&emsp;&emsp;
+30米: &emsp;&emsp;<input type="number" step="0.001" id="30m" style="height: 30px;width: 70px;" value="2.956"">s&emsp;&emsp;
+60米: &emsp;&emsp;<input type="number" step="0.001" id="60m" style="height: 30px;width: 70px;" value="5.318"">s&emsp;&emsp;
+100米: &nbsp;&emsp;<input type="number" step="0.001" id="100m" style="height: 30px;width: 70px;" value="8.438"">s<br><br><br>
+&nbsp;跳远: &emsp;&emsp;<input type="number" step="0.001" id="ljp" style="height: 30px;width: 70px;" value="11.66"">m&nbsp;&nbsp;&emsp;
+三级跳:&emsp; <input type="number" step="0.001" id="tjp" style="height: 30px;width: 70px;" value="28.197"">m&emsp; &nbsp;
+60米栏:&nbsp;&emsp;<input type="number" step="0.001" id="60mh" style="height: 30px;width: 70px;" value="5.58"">s&emsp;&emsp;
+110米栏:&nbsp;&nbsp;<input type="number" step="0.001" id="110mh" style="height: 30px;width: 70px;" value="9.79"">s<br><br>
+<button onclick="points()">提交</button><br><br>
+</font>
+
+<script>
+    function points(){
+        var tm = document.getElementById("10m").value;
+        var thm = document.getElementById("30m").value;
+        var sm = document.getElementById("60m").value;
+        var hm = document.getElementById("100m").value;
+        var lp = document.getElementById("ljp").value;
+        var tp = document.getElementById("tjp").value;
+        var smh = document.getElementById("60mh").value;
+        var hmh = document.getElementById("110mh").value;
+        var ptm=ten(tm);
+        var pthm=thirty(thm).toFixed(2);
+        var psm=sixty(sm).toFixed(2);
+        var phm=hundred(hm).toFixed(2);
+        var plp=ljp(lp).toFixed(2);
+        var ptp=tjp(tp).toFixed(2);
+        var psmh=sixtymh(smh).toFixed(2);
+        var phmh=hundredmh(hmh).toFixed(2);
+        window.alert("10米 " + tm + "s : " + ptm + " pts\n\n"
+         + "30米 " + thm + "s : " + pthm + " pts\n\n"
+         + "60米 " + sm + "s : " + psm + " pts\n\n"
+         + "100米 " + hm + "s : " + phm + " pts\n\n"
+         + "跳远 " + lp + "m : " + plp + " pts\n\n"
+         + "三级跳 " + tp + "m : " + ptp + " pts\n\n"
+         + "60米栏 " + smh + "s : " + psmh + " pts\n\n"
+         + "110米栏 " + hmh + "s : " + phmh + " pts\n\n"
+         + "总分 : " + totala(tm,thm,sm,hm,lp,tp,smh,hmh).toFixed(2) + "pts\n\n"
+         + "( " + abf(tm,thm,sm,hm).toFixed(2) + " + " + bbf(lp,tp).toFixed(2) + " + " + cbf(smh,hmh).toFixed(2) + " )");
+    }
+    function ten(time){
+	    if(time>6) return 0;
+	    return 0.1484094884*Math.pow(6-time,6);
+    }
+    function thirty(time){
+	    if(time>15) return 0;
+	    return 0.0004468145*Math.pow(15-time,6);
+    }
+    function sixty(time){
+	    if(time>25) return 0;
+	    return 0.0000228672723507692*Math.pow(25-time,6);
+    }
+    function hundred(time){
+    	if(time>40) return 0;
+    	return 0.0000000013530119247081*Math.pow(40-time,8);
+    }
+    function ljp(meters){
+    	return 12.5203504211*Math.pow(0-meters,2);
+    }
+    function tjp(meters){
+    	return 10.4061905529*Math.pow(meters,1.5);
+    }
+    function sixtymh(time){
+	    if(time>=35) return 0;
+	    return 0.00000236317902382721*Math.pow(35-time,6);
+    }
+    function hundredmh(time){
+    	if(time>=70) return 0;
+	    return 0.0000000000104284629785322*Math.pow(70-time,8);
+    }
+    function totala(a,b,c,d,e,f,g,h){
+        return ten(a)+thirty(b)+sixty(c)+hundred(d)+ljp(e)+tjp(f)+sixtymh(g)+hundredmh(h);
+    }
+    function abf(a,b,c,d){
+        return ten(a)+thirty(b)+sixty(c)+hundred(d);
+    }
+    function bbf(e,f){
+        return ljp(e)+tjp(f);
+    }
+    function cbf(g,h){
+        return sixtymh(g)+hundredmh(h);
+    }
+</script>
+
+</body>
+</html>
