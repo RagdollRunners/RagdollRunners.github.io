@@ -50,14 +50,14 @@
         <h1>成绩</h1>
         <div class="abc"><br><br><br>
             <font size="4" style="color:black;">
-                10米: &emsp;&emsp;<input type="number" step="0.001" id="10m" style="height: 30px;width: 70px;" value="1.315">s&emsp;&emsp;
-                30米: &emsp;&emsp;<input type="number" step="0.001" id="30m" style="height: 30px;width: 70px;" value="2.956">s<br><br>
-                60米: &emsp;&emsp;<input type="number" step="0.001" id="60m" style="height: 30px;width: 70px;" value="5.318">s&emsp;&emsp;
-                100米: &nbsp;&emsp;<input type="number" step="0.001" id="100m" style="height: 30px;width: 70px;" value="8.438">s<br><br>
-                &nbsp; 跳远: &emsp;&emsp;<input type="number" step="0.001" id="ljp" style="height: 30px;width: 70px;" value="11.66">m&nbsp;&nbsp;&emsp;
-                三级跳:&emsp; <input type="number" step="0.001" id="tjp" style="height: 30px;width: 70px;" value="28.197">m<br><br>
-                60米栏:&nbsp;&emsp;<input type="number" step="0.001" id="60mh" style="height: 30px;width: 70px;" value="5.58">s&emsp;&emsp;
-                110米栏:&nbsp;&nbsp;<input type="number" step="0.001" id="110mh" style="height: 30px;width: 70px;" value="9.79">s<br><br>
+                10米: &emsp;&emsp;<input type="number" step="0.001" id="10m" style="height: 30px;width: 70px;">s&emsp;&emsp;
+                30米: &emsp;&emsp;<input type="number" step="0.001" id="30m" style="height: 30px;width: 70px;">s<br><br>
+                60米: &emsp;&emsp;<input type="number" step="0.001" id="60m" style="height: 30px;width: 70px;">s&emsp;&emsp;
+                100米: &nbsp;&emsp;<input type="number" step="0.001" id="100m" style="height: 30px;width: 70px;">s<br><br>
+                &nbsp; 跳远: &emsp;&emsp;<input type="number" step="0.001" id="ljp" style="height: 30px;width: 70px;">m&nbsp;&nbsp;&emsp;
+                三级跳:&emsp; <input type="number" step="0.001" id="tjp" style="height: 30px;width: 70px;">m<br><br>
+                60米栏:&nbsp;&emsp;<input type="number" step="0.001" id="60mh" style="height: 30px;width: 70px;">s&emsp;&emsp;
+                110米栏:&nbsp;&nbsp;<input type="number" step="0.001" id="110mh" style="height: 30px;width: 70px;">s<br><br>
                 保留位数:<input type="number" id="ws" style="height: 30px;width: 40px;" value="2">&emsp;
                 <button onclick="points()">提交</button><br><br>
             </font><br>
@@ -73,6 +73,12 @@
                 var smh = document.getElementById("60mh").value;
                 var hmh = document.getElementById("110mh").value;
                 var ws = document.getElementById("ws").value;
+                if(thm==null) thm="无";
+                if(sm==null) sm="无";
+                if(hm==null) hm="无";
+                if(smh==null) smh="无";
+                if(tm==null) tm="无";
+                if(hmh==null) hmh="无";
                 var ptm=ten(tm).toFixed(ws);
                 var pthm=thirty(thm).toFixed(ws);
                 var psm=sixty(sm).toFixed(ws);
@@ -82,9 +88,7 @@
                 var psmh=sixtymh(smh).toFixed(ws);
                 var phmh=hundredmh(hmh).toFixed(ws);
                 var str = "10米 " + tm + "s : " + ptm + " pts\n\n" + "30米 " + thm + "s : " + pthm + " pts\n\n" + "60米 " + sm + "s : " + psm + " pts\n\n" + "100米 " + hm + "s : " + phm + " pts\n\n" + "跳远 " + lp + "m : " + plp + " pts\n\n" + "三级跳 " + tp + "m : " + ptp + " pts\n\n" + "60米栏 " + smh + "s : " + psmh + " pts\n\n" + "110米栏 " + hmh + "s : " + phmh + " pts\n\n" + "总分 : " + totala(tm,thm,sm,hm,lp,tp,smh,hmh).toFixed(ws) + " pts\n\n" + "( " + abf(tm,thm,sm,hm).toFixed(ws) + " + " + bbf(lp,tp).toFixed(ws) + " + " + cbf(smh,hmh).toFixed(ws) + " )";
-                var iscopy = window.confirm("点击确定复制以下内容\n\n" + str);
-                if(iscopy == true) copy(str);
-                
+                window.alert("点击确定复制以下内容\n\n" + str);
             }
             function ten(time){
 	            if(time>6 || time==0 || time==null) return 0;
