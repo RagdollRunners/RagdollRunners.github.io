@@ -79,6 +79,8 @@
                 if(smh==null || smh==0) var smh="无 ";
                 if(tm==null || tm==0) var tm="无 ";
                 if(hmh==null || hmh==0) var hmh="无 ";
+                if(lp==null || lp==0) var lp="无 ";
+                if(tp==null || tp==0) var tp="无 ";
                 var ptm=ten(tm).toFixed(ws);
                 var pthm=thirty(thm).toFixed(ws);
                 var psm=sixty(sm).toFixed(ws);
@@ -91,33 +93,35 @@
                 window.alert(str);
             }
             function ten(time){
-	            if(time>6 || time==0 || time==null) return 0;
+	            if(time>6 || time==0 || time=="无 ") return 0;
 	            return 0.1484094884*Math.pow(6-time,6);
             }
             function thirty(time){
-	            if(time>15 || time==0 || time==null) return 0;
+	            if(time>15 || time==0 || time=="无 ") return 0;
 	            return 0.0004468145*Math.pow(15-time,6);
             }
             function sixty(time){
-	            if(time>25 || time==0 || time==null) return 0;
+	            if(time>25 || time==0 || time=="无 ") return 0;
 	            return 0.0000228672723507692*Math.pow(25-time,6);
             }
             function hundred(time){
-    	        if(time>40 || time==0 || time==null) return 0;
+    	        if(time>40 || time==0 || time=="无 ") return 0;
     	        return 0.0000000013530119247081*Math.pow(40-time,8);
             }
             function ljp(meters){
+                if(meters=="无 ") return 0;
     	        return 12.5203504211*Math.pow(0-meters,2);
             }
             function tjp(meters){
+                if(meters=="无 ") return 0;
             	return 10.4061905529*Math.pow(meters,1.5);
             }
             function sixtymh(time){
-	            if(time>=35 || time==0 || time==null) return 0;
+	            if(time>=35 || time==0 || time=="无 ") return 0;
 	            return 0.00000236317902382721*Math.pow(35-time,6);
             }
             function hundredmh(time){
-    	        if(time>=70 || time==0 || time==null) return 0;
+    	        if(time>=70 || time==0 || time=="无 ") return 0;
 	            return 0.0000000000104284629785322*Math.pow(70-time,8);
             }
             function totala(a,b,c,d,e,f,g,h){
