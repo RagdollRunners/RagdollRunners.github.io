@@ -59,7 +59,7 @@
                 60米栏:&nbsp;&emsp;<input type="number" step="0.001" id="60mh" style="height: 30px;width: 70px;">s&emsp;&emsp;
                 110米栏:&nbsp;&nbsp;<input type="number" step="0.001" id="110mh" style="height: 30px;width: 70px;">s<br><br>
                 保留位数:<input type="number" id="ws" style="height: 30px;width: 40px;" value="2">&emsp;
-                <button onclick="points()">提交</button><br><br>
+                <button onclick="points()">计算</button><br><br>
             </font><br>
         </div>
         <script>
@@ -73,12 +73,12 @@
                 var smh = document.getElementById("60mh").value;
                 var hmh = document.getElementById("110mh").value;
                 var ws = document.getElementById("ws").value;
-                if(thm==null) thm="无";
-                if(sm==null) sm="无";
-                if(hm==null) hm="无";
-                if(smh==null) smh="无";
-                if(tm==null) tm="无";
-                if(hmh==null) hmh="无";
+                if(thm==null) var thm="无";
+                if(sm==null) var sm="无";
+                if(hm==null) var hm="无";
+                if(smh==null) var smh="无";
+                if(tm==null) var tm="无";
+                if(hmh==null) var hmh="无";
                 var ptm=ten(tm).toFixed(ws);
                 var pthm=thirty(thm).toFixed(ws);
                 var psm=sixty(sm).toFixed(ws);
