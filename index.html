@@ -73,12 +73,12 @@
                 var smh = document.getElementById("60mh").value;
                 var hmh = document.getElementById("110mh").value;
                 var ws = document.getElementById("ws").value;
-                if(thm==null) var thm="null";
-                if(sm==null) var sm="null";
-                if(hm==null) var hm="null";
-                if(smh==null) var smh="null";
-                if(tm==null) var tm="null";
-                if(hmh==null) var hmh="null";
+                if(thm==null || thm==undefined) var thm="null";
+                if(sm==null || sm==undefined) var sm="null";
+                if(hm==null || hm==undefined) var hm="null";
+                if(smh==null || smh==undefined) var smh="null";
+                if(tm==null || tm==undefined) var tm="null";
+                if(hmh==null || hmh==undefined) var hmh="null";
                 var ptm=ten(tm).toFixed(ws);
                 var pthm=thirty(thm).toFixed(ws);
                 var psm=sixty(sm).toFixed(ws);
@@ -88,22 +88,22 @@
                 var psmh=sixtymh(smh).toFixed(ws);
                 var phmh=hundredmh(hmh).toFixed(ws);
                 var str = "10米 " + tm + "s : " + ptm + " pts\n\n" + "30米 " + thm + "s : " + pthm + " pts\n\n" + "60米 " + sm + "s : " + psm + " pts\n\n" + "100米 " + hm + "s : " + phm + " pts\n\n" + "跳远 " + lp + "m : " + plp + " pts\n\n" + "三级跳 " + tp + "m : " + ptp + " pts\n\n" + "60米栏 " + smh + "s : " + psmh + " pts\n\n" + "110米栏 " + hmh + "s : " + phmh + " pts\n\n" + "总分 : " + totala(tm,thm,sm,hm,lp,tp,smh,hmh).toFixed(ws) + " pts\n\n" + "( " + abf(tm,thm,sm,hm).toFixed(ws) + " + " + bbf(lp,tp).toFixed(ws) + " + " + cbf(smh,hmh).toFixed(ws) + " )";
-                window.alert("点击确定复制以下内容\n\n" + str);
+                window.alert(str);
             }
             function ten(time){
-	            if(time>6 || time==0 || time==null) return 0;
+	            if(time>6 || time==null) return 0;
 	            return 0.1484094884*Math.pow(6-time,6);
             }
             function thirty(time){
-	            if(time>15 || time==0 || time==null) return 0;
+	            if(time>15 || time==null) return 0;
 	            return 0.0004468145*Math.pow(15-time,6);
             }
             function sixty(time){
-	            if(time>25 || time==0 || time==null) return 0;
+	            if(time>25 || time==null) return 0;
 	            return 0.0000228672723507692*Math.pow(25-time,6);
             }
             function hundred(time){
-    	        if(time>40 || time==0 || time==null) return 0;
+    	        if(time>40 || time==null) return 0;
     	        return 0.0000000013530119247081*Math.pow(40-time,8);
             }
             function ljp(meters){
@@ -113,11 +113,11 @@
             	return 10.4061905529*Math.pow(meters,1.5);
             }
             function sixtymh(time){
-	            if(time>=35 || time==0 || time==null) return 0;
+	            if(time>=35 || time==null) return 0;
 	            return 0.00000236317902382721*Math.pow(35-time,6);
             }
             function hundredmh(time){
-    	        if(time>=70 || time==0 || time==null) return 0;
+    	        if(time>=70 || time==null) return 0;
 	            return 0.0000000000104284629785322*Math.pow(70-time,8);
             }
             function totala(a,b,c,d,e,f,g,h){
