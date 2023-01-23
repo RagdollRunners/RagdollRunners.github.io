@@ -73,12 +73,12 @@
                 var smh = document.getElementById("60mh").value;
                 var hmh = document.getElementById("110mh").value;
                 var ws = document.getElementById("ws").value;
-                if(thm==null || thm==0) var thm="null";
-                if(sm==null || sm==0) var sm="null";
-                if(hm==null || hm==0) var hm="null";
-                if(smh==null || smh==0) var smh="null";
-                if(tm==null || tm==0) var tm="null";
-                if(hmh==null || hmh==0) var hmh="null";
+                if(thm==null || thm==0) var thm="无 ";
+                if(sm==null || sm==0) var sm="无 ";
+                if(hm==null || hm==0) var hm="无 ";
+                if(smh==null || smh==0) var smh="无 ";
+                if(tm==null || tm==0) var tm="无 ";
+                if(hmh==null || hmh==0) var hmh="无 ";
                 var ptm=ten(tm).toFixed(ws);
                 var pthm=thirty(thm).toFixed(ws);
                 var psm=sixty(sm).toFixed(ws);
@@ -91,19 +91,19 @@
                 window.alert(str);
             }
             function ten(time){
-	            if(time>6 || time==0) return 0;
+	            if(time>6 || time==0 || time==null) return 0;
 	            return 0.1484094884*Math.pow(6-time,6);
             }
             function thirty(time){
-	            if(time>15 || time==0) return 0;
+	            if(time>15 || time==0 || time==null) return 0;
 	            return 0.0004468145*Math.pow(15-time,6);
             }
             function sixty(time){
-	            if(time>25 || time==0) return 0;
+	            if(time>25 || time==0 || time==null) return 0;
 	            return 0.0000228672723507692*Math.pow(25-time,6);
             }
             function hundred(time){
-    	        if(time>40 || time==0) return 0;
+    	        if(time>40 || time==0 || time==null) return 0;
     	        return 0.0000000013530119247081*Math.pow(40-time,8);
             }
             function ljp(meters){
@@ -113,11 +113,11 @@
             	return 10.4061905529*Math.pow(meters,1.5);
             }
             function sixtymh(time){
-	            if(time>=35 || time==0) return 0;
+	            if(time>=35 || time==0 || time==null) return 0;
 	            return 0.00000236317902382721*Math.pow(35-time,6);
             }
             function hundredmh(time){
-    	        if(time>=70 || time==0) return 0;
+    	        if(time>=70 || time==0 || time==null) return 0;
 	            return 0.0000000000104284629785322*Math.pow(70-time,8);
             }
             function totala(a,b,c,d,e,f,g,h){
